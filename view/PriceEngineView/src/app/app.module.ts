@@ -8,6 +8,12 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductCardComponent } from './util/product-card/product-card.component';
+import { InputFieldComponent } from './util/input-field/input-field.component';
+
+import { PriceService } from './price.service';
+import { NewProductComponent } from './new-product/new-product.component';
+
 
 
 @NgModule({
@@ -15,7 +21,10 @@ import { ProductListComponent } from './product-list/product-list.component';
     AppComponent,
     CalculatorComponent,
     HomeComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductCardComponent,
+    InputFieldComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +33,7 @@ import { ProductListComponent } from './product-list/product-list.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PriceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

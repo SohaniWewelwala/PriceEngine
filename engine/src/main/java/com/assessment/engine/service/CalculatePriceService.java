@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CalculatePriceService {
 
-    Double calculateProductPrice(Product products, Integer amount);
+    Double calculateProductPrice(Product products, double amount);
 
     Double calculateTotalPrice(List<TotalProductPrice> list);
 

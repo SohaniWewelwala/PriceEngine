@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { Product } from './model/product';
+import { environment } from '../environments/environment';
 
 @Injectable()
-export class PriceEngineServiceService {
+export class PriceService {
 
-  private baseUrl = 'http://localhost:8080/items/';
+  private baseUrl = environment.productApi;
 
   constructor(private http:HttpClient) { }
 
@@ -14,20 +15,20 @@ export class PriceEngineServiceService {
     return this.http.get(`${this.baseUrl}`+'/get-all-products');  
   } 
   
-  getSingleProduct(id: number): Observable<Object> {  
+  getSingleProduct(id: number): Observable<any> {  
     return this.http.get(`${this.baseUrl}/get-products/${id}`);  
   }  
 
-  UpdateProduct(product: Product): Observable<Object> {  
+  UpdateProduct(product: Product): Observable<any> {  
     return this.http.post(`${this.baseUrl}`+'/update-products', product);  
   }  
 
-  calculateSingleProduct(productId: number, amount: number): Observable<Object> {  
-    return this.http.get(`${this.baseUrl}/get-products/${productId}/${amount}`);   
+  calculateSingleProduct(productId: number, amount: number): Observable<any> {  
+    return this.http.get(`${this.baseUrl}`+`/calculate_product/single/${productId}/${amount}`);   
   }  
 
-  calculateTotalPrice(productLlist: any): Observable<Object> {  
+  calculateTotalPrice(productLlist: any): Observable<any> {  
     return this.http.post(`${this.baseUrl}`+'/calculate_price/all', productLlist);  
   }  
- 
+
 }

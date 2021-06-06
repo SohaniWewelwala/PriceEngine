@@ -1,3 +1,13 @@
-<p>
-  product-list works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <h3>Products</h3>
+  </div>
+  <div class="card-body">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+      (getAmount)="setAmount($event)"
+      (editItem)="passEditItem($event)"
+    ></app-product-card>
+  </div>
+</div>

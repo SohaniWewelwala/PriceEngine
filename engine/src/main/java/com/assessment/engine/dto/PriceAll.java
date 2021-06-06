@@ -12,5 +12,5 @@ import lombok.ToString;
 public class PriceAll {
 
     private Long productId;
-    private Integer price;
+    private double price;
 }

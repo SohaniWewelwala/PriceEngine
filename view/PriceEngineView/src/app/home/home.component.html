@@ -1,3 +1,46 @@
-<p>
-  home works!
-</p>
+<section>
+  <div class="row top-space">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <h1>Price Engine</h1>
+      <button class="btn btn-success" (click)="loadModalNewItem()">Add New Product</button>
+      <div class="row top-space">
+        <div class="col-sm-7">
+          <app-product-list
+            [products]="avilableProducts"
+            (getAmount)="passAmount($event)"
+            (getEditItem)="getEditProductInfo($event)"
+          ></app-product-list>
+        </div>
+        <div class="col-sm-5">
+          <app-calculator
+            [calculatedProductList]="calculatedProductList"
+            [totalPrice]="totalPrice"
+            (changeAmountPurchased)="changeAmount($event)"
+            (removeItem)="removeItem($event)"
+          ></app-calculator>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</section>
+
+<section id="models">
+  <div class="modal fade" id="newProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <app-new-product
+          [product]="newProduct"
+          (passItemInfo)="getNewProductDetails($event)"
+        ></app-new-product>
+      </div>
+    </div>
+  </div>
+</section>

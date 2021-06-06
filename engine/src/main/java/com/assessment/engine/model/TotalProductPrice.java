@@ -12,5 +12,5 @@ import lombok.ToString;
 public class TotalProductPrice {
 
     private Product products;
-    private Integer amount;
+    private double amount;
 }

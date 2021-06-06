@@ -15,11 +15,11 @@ import java.util.List;
 public class CalculatePriceImpl implements CalculatePriceService {
 
     @Override
-    public Double calculateProductPrice(Product product, Integer amount) {
+    public Double calculateProductPrice(Product product, double amount) {
         Double totalPrice = 0.0;
         try {
-            Integer cartonAmount = amount / product.getNoOfUnitsInCarton();
-            Integer remainingAmount = amount % product.getNoOfUnitsInCarton();
+            double cartonAmount = amount / product.getNoOfUnitsInCarton();
+            double remainingAmount = amount % product.getNoOfUnitsInCarton();
             Double cartonPrice = cartonAmount * product.getPriceOfCarton();
             Double singleUnitPrice = remainingAmount * calculateSinglePrice(product.getPriceOfCarton(), product.getNoOfUnitsInCarton());
             totalPrice = cartonPrice + singleUnitPrice;

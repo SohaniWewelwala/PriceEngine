@@ -1,0 +1,12 @@
+<div class="modal-body">
+  <app-input-field name="productName" label="product" id="productName" describeId="productNameDescribe"
+  [(ngModel)]="product.productName" [isMandatory]="true" (getValue)="setValue($event)"></app-input-field>
+  <app-input-field name="noOfUnitsInCarton" label="noOfUnitsInCarton" id="noOfUnitsInCarton" describeId="noOfUnitsInCartonDescribe"
+  [(ngModel)]="product.noOfUnitsInCarton" [isMandatory]="true" (getValue)="setValue($event)"></app-input-field>
+  <app-input-field name="priceOfCarton" label="priceOfCarton" id="priceOfCarton" describeId="priceOfCartonDescribe"
+  [(ngModel)]="product.priceOfCarton" [isMandatory]="true" (getValue)="setValue($event)"></app-input-field>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" (click)="getNewItem()">Create Product</button>
+</div>
